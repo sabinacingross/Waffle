@@ -32,19 +32,52 @@ const positiveSayings = [
 ];
 
 const decorations = [
-    drawRainbowFlowers,
-    drawButterflies,
-    drawHearts,
-    drawSunAndClouds,
-    drawFlowerGarden,
-    drawRainbow,
-    drawStars,
-    drawMountains,
-    drawFloatingBalloons,
-    drawShimmeryDots
+    showEmojiPattern
 ];
 
 let lastSayingIndex = -1;
+
+function showEmojiPattern() {
+    const emojiContainer = document.getElementById('emojiContainer');
+    const emojiMap = {
+        '👊': '👊',
+        '💪': '💪',
+        '💖': '💖',
+        '🏆': '🏆',
+        '✨': '✨',
+        '🛡️': '🛡️',
+        '👑': '👑',
+        '🌟': '🌟',
+        '💎': '💎',
+        '🎯': '🎯',
+        '🤝': '🤝',
+        '🚀': '🚀',
+        '🌈': '🌈',
+        '📈': '📈',
+        '💝': '💝',
+        '💗': '💗',
+        '👨‍👦': '👨‍👦',
+        '😄': '😄',
+        '☀️': '☀️',
+        '🔥': '🔥',
+        '🎊': '🎊',
+        '🧠': '🧠',
+        '🎁': '🎁',
+        '🔐': '🔐',
+        '🏠': '🏠',
+        '🎉': '🎉',
+        '👂': '👂'
+    };
+
+    const currentText = document.getElementById('saying').textContent;
+    const match = currentText.match(/([\p{Emoji_Presentation}\uFE0F\u200D]+)/u);
+    const emoji = match && emojiMap[match[1]] ? emojiMap[match[1]] : '✨';
+
+    emojiContainer.innerHTML = '';
+    const span = document.createElement('span');
+    span.textContent = emoji;
+    emojiContainer.appendChild(span);
+}
 
 function drawRainbowFlowers() {
     const svg = document.getElementById('decorationSvg');

@@ -48,19 +48,21 @@ body {
 
 .title-box {
     display: inline-block;
-    background: #f7f3eb;
-    border-radius: 24px;
-    padding: 0.9rem 1.2rem;
-    margin-bottom: 0.9rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 28px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+    border: 2px solid rgba(91, 131, 255, 0.22);
     max-width: 620px;
 }
 
 .title-box h1 {
-    color: #2b2b2b;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    color: #1a337d;
+    font-size: 3rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.04em;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .title-box .subtitle {
@@ -74,15 +76,65 @@ body {
     height: 250px;
     margin: 1rem auto;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    background: white;
+    border-radius: 28px;
+    padding: 0.75rem;
 }
 
 .waffle-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 25px;
+    border-radius: 20px;
     border: 3px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.image-note-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.note-box {
+    position: relative;
+    max-width: 200px;
+    min-width: 160px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.75rem 0.9rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    color: #2b2b2b;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.note-box::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.note-box p {
+    margin: 0;
+}
+
+.note-box .note-subtext {
+    margin-top: 0.65rem;
+    color: #5d5a51;
+    font-size: 0.95rem;
+    opacity: 0.95;
 }
 
 .glow-button {
@@ -103,16 +155,16 @@ body {
 
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 0 30px rgba(24, 80, 188, 0.45), 0 0 60px rgba(18, 61, 140, 0.25);
+        box-shadow: 0 0 20px rgba(24, 80, 188, 0.45), 0 0 40px rgba(18, 61, 140, 0.25);
     }
     50% {
-        box-shadow: 0 0 50px rgba(24, 80, 188, 0.7), 0 0 80px rgba(18, 61, 140, 0.35);
+        box-shadow: 0 0 35px rgba(24, 80, 188, 0.7), 0 0 55px rgba(18, 61, 140, 0.35);
     }
 }
 
 .glow-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 50px rgba(18, 61, 140, 0.9), 0 0 100px rgba(10, 34, 110, 0.6);
+    box-shadow: 0 0 35px rgba(18, 61, 140, 0.9), 0 0 65px rgba(10, 34, 110, 0.6);
 }
 
 .glow-button:active {
@@ -129,28 +181,29 @@ body {
     max-width: 900px;
 }
 
-.picture-container {
+.emoji-container {
     width: 260px;
-    height: 180px;
+    min-height: 180px;
     background: rgba(255, 255, 255, 0.12);
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.75rem;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
     animation: slideIn 0.5s ease;
     flex-shrink: 0;
+    font-size: 4rem;
 }
 
-#decorationSvg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+.emoji-container span {
+    line-height: 1;
 }
 
 .saying-box {
+    position: relative;
     background: #f7f3eb;
     border-radius: 20px;
     padding: 1.2rem;
@@ -159,6 +212,18 @@ body {
     animation: slideIn 0.5s ease;
     min-width: 240px;
     flex: 1;
+}
+
+.saying-box::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-right: 32px solid white;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.12));
 }
 
 .saying-box p {
